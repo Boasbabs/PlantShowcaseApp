@@ -19,21 +19,22 @@ const Stack = createStackNavigator();
 function Navigation() {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={screenStyles}>
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Signup" component={SignUp} />
-        <Stack.Screen name="Forgot" component={Forgot} />
-        <Stack.Screen name="Browse" component={Browse} />
-        <Stack.Screen name="Explore" component={Explore} />
+      <Stack.Navigator initialRouteName="Welcome" screenOptions={screenOptions}>
         <Stack.Screen name="Welcome" component={Welcome} />
-        <Stack.Screen name="Product" component={Product} />
-        <Stack.Screen name="Settings" component={Settings} />
+        {/* <Stack.Screen name="Login" component={Login} /> */}
+        {/* <Stack.Screen name="SignUp" component={SignUp} /> */}
+        {/* <Stack.Screen name="Forgot" component={Forgot} /> */}
+        {/* <Stack.Screen name="Browse" component={Browse} /> */}
+        {/* <Stack.Screen name="Explore" component={Explore} /> */}
+        {/* <Stack.Screen name="Product" component={Product} /> */}
+        {/* <Stack.Screen name="Settings" component={Settings} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
-const screenStyles = {
+const screenOptions = {
+  gestureEnabled: true,
   headerStyle: {
     height: theme.sizes.base * 4,
     backgroundColor: theme.colors.white,
@@ -51,6 +52,7 @@ const screenStyles = {
     alignItems: "center",
     paddingRight: theme.sizes.base,
   },
+  headerBackTitleVisible: false,
 };
 
 export default Navigation;
