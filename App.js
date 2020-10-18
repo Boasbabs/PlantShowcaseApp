@@ -1,11 +1,10 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View } from "react-native";
 
 import { AppLoading } from "expo";
 import {Asset} from 'expo-asset'
 
-import Navigation from "./navigation";
+import MainStackNavigator from "./navigation";
 
 // import all used images
 const images = [
@@ -53,7 +52,7 @@ export default function App(props) {
     );
   }
 
-  return <Navigation />;
+  return <MainStackNavigator />;
 }
 
 // const styles = StyleSheet.create({

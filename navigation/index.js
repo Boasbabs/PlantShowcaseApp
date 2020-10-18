@@ -16,13 +16,26 @@ import { theme } from "../constants";
 
 const Stack = createStackNavigator();
 
-function Navigation() {
+function MainStackNavigator() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Welcome" screenOptions={screenOptions}>
-        <Stack.Screen name="Welcome" component={Welcome} />
-        {/* <Stack.Screen name="Login" component={Login} /> */}
-        {/* <Stack.Screen name="SignUp" component={SignUp} /> */}
+        <Stack.Screen
+          name="Welcome"
+          component={Welcome}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Login"
+          component={Login}
+
+          // options={{ title: "Login" }}
+        />
+        <Stack.Screen
+          name="SignUp"
+          component={SignUp}
+          // options={{ title: "SignUp" }}
+        />
         {/* <Stack.Screen name="Forgot" component={Forgot} /> */}
         {/* <Stack.Screen name="Browse" component={Browse} /> */}
         {/* <Stack.Screen name="Explore" component={Explore} /> */}
@@ -41,18 +54,17 @@ const screenOptions = {
     borderBottomColor: "transparent",
     elevation: 0, // for android
   },
-  headerBackImage: <Image source={require("../assets/icons/back.png")} />,
   headerBackTitle: null,
-  headerLeftContainerStyle: {
-    alignItems: "center",
-    marginLeft: theme.sizes.base * 2,
-    paddingRight: theme.sizes.base,
-  },
-  headerRightContainerStyle: {
-    alignItems: "center",
-    paddingRight: theme.sizes.base,
-  },
+  // headerLeftContainerStyle: {
+  //   alignItems: "center",
+  //   marginLeft: theme.sizes.base * 2,
+  //   paddingRight: theme.sizes.base,
+  // },
+  // headerRightContainerStyle: {
+  //   alignItems: "center",
+  //   paddingRight: theme.sizes.base,
+  // },
   headerBackTitleVisible: false,
 };
 
-export default Navigation;
+export default MainStackNavigator;
