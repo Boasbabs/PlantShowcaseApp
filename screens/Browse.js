@@ -17,12 +17,20 @@ const Browse = ({ navigation, ...props }) => {
   const [categories, setCategories] = useState([]);
   const tabs = ["Products", "Inspirations", "Shop"];
 
+  const handleTab = (tab) => {
+    const categories = props.categories;
+    const filtered = categories.filter(category => category.tags.includes(tab.toLowerCase()))
+
+    setActive(tab)
+    setCategories(filtered)
+  }
+
   const renderTab = (tab) => {
     const isActive = active === tab;
     return (
       <TouchableOpacity
         key={`tab-${tab}`}
-        onPress={() => setActive(tab)}
+        onPress={() => handleTab(tab)}
         style={[styles.tab, isActive ? styles.active : null]}
       >
         <Text size={16} medium gray={!isActive} secondary={isActive}>
@@ -42,7 +50,7 @@ const Browse = ({ navigation, ...props }) => {
         <Text h1 bold>
           Browse
         </Text>
-        <Button>
+        <Button onPress={()=> navigation.navigate('Settings')}>
           <Image source={props.profile?.avatar} style={styles.avatar} />
         </Button>
       </Block>

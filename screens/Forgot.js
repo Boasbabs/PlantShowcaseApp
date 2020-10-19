@@ -5,7 +5,6 @@ import {
   Keyboard,
   KeyboardAvoidingView,
   StyleSheet,
-  ScrollView,
 } from "react-native";
 
 import { Button, Block, Input, Text } from "../components";
