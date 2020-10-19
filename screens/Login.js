@@ -42,9 +42,12 @@ const Login = ({ navigation, ...props }) => {
 
   return (
     <KeyboardAvoidingView style={styles.login} behavior={Platform.OS == "ios" ? "padding" : "height"}>
-      <Block padding={[0, theme.sizes.base * 2]}>
+      <Block padding={[theme.sizes.base, theme.sizes.base * 2]}>
         <Text h1 bold>
           Login
+        </Text>
+        <Text h5 gray>
+         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, 
         </Text>
         <Block middle>
           <Input

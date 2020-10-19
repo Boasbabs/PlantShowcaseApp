@@ -210,7 +210,7 @@ const Welcome = (props) => {
   };
 
   return (
-    <Block>
+    <Block padding={[theme.sizes.base, theme.sizes.base * 0]}>
       <Block center middle flex={0.3}>
         <Text h1 center bold>
           Your Home.

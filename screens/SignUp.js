@@ -60,9 +60,12 @@ const SignUp = ({ navigation, ...props }) => {
       style={styles.signup}
       behavior={Platform.OS == "ios" ? "padding" : "height"}
     >
-      <Block padding={[0, theme.sizes.base * 2]}>
+      <Block padding={[theme.sizes.base, theme.sizes.base * 2]}>
         <Text h1 bold>
           Sign Up
+        </Text>
+        <Text h5 gray>
+         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, 
         </Text>
         <Block middle>
           <Input
