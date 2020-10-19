@@ -55,7 +55,7 @@ const Login = ({ navigation, ...props }) => {
             onChangeText={(text) => setEmailValue(text)}
           />
           <Input
-            secure={true}
+            secure
             label="Password"
             error={hasErrors("password")}
             style={[styles.input, hasErrors("password")]}
