@@ -25,22 +25,37 @@ function MainStackNavigator() {
           component={Welcome}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
-          name="Login"
-          component={Login}
-
-          // options={{ title: "Login" }}
-        />
+        <Stack.Screen name="Login" component={Login} options={{ title: "" }} />
         <Stack.Screen
           name="SignUp"
           component={SignUp}
-          // options={{ title: "SignUp" }}
+          options={{ title: "" }}
         />
-        {/* <Stack.Screen name="Forgot" component={Forgot} /> */}
-        {/* <Stack.Screen name="Browse" component={Browse} /> */}
-        {/* <Stack.Screen name="Explore" component={Explore} /> */}
-        {/* <Stack.Screen name="Product" component={Product} /> */}
-        {/* <Stack.Screen name="Settings" component={Settings} /> */}
+        <Stack.Screen
+          name="Forgot"
+          component={Forgot}
+          options={{ title: "" }}
+        />
+        <Stack.Screen
+          name="Browse"
+          component={Browse}
+          options={{ title: "" }}
+        />
+        <Stack.Screen
+          name="Explore"
+          component={Explore}
+          options={{ title: "" }}
+        />
+        <Stack.Screen
+          name="Product"
+          component={Product}
+          options={{ title: "" }}
+        />
+        <Stack.Screen
+          name="Settings"
+          component={Settings}
+          options={{ title: "" }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -55,15 +70,15 @@ const screenOptions = {
     elevation: 0, // for android
   },
   headerBackTitle: null,
-  // headerLeftContainerStyle: {
-  //   alignItems: "center",
-  //   marginLeft: theme.sizes.base * 2,
-  //   paddingRight: theme.sizes.base,
-  // },
-  // headerRightContainerStyle: {
-  //   alignItems: "center",
-  //   paddingRight: theme.sizes.base,
-  // },
+  headerLeftContainerStyle: {
+    alignItems: "center",
+    marginLeft: theme.sizes.base / 2,
+    paddingRight: theme.sizes.base,
+  },
+  headerRightContainerStyle: {
+    alignItems: "center",
+    paddingRight: theme.sizes.base,
+  },
   headerBackTitleVisible: false,
 };
 

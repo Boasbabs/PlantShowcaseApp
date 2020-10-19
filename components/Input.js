@@ -1,31 +1,20 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
 import { StyleSheet, TextInput } from "react-native";
-import { Icon } from "expo";
+import { Ionicons } from "@expo/vector-icons";
 
 import Text from "./Text";
 import Block from "./Block";
 import Button from "./Button";
 import { theme } from "../constants";
 
-const Input = (email, phone, number, secure, error, label, style, ...props) => {
-  const [toggleSecure, setToggleSecure] = useState;
-  const inputType = email
-    ? "email-address"
-    : number
-    ? "numeric"
-    : phone
-    ? "phone-pad"
-    : "default";
+export default class Input extends Component {
+  state = {
+    toggleSecure: false,
+  };
 
-  const isSecure = toggleSecure ? false : sec;
+  renderLabel() {
+    const { label, error } = this.props;
 
-  const inputStyles = [
-    styles.input,
-    error && { borderColor: theme.colors.accent },
-    style,
-  ];
-
-  const renderLabel = () => {
     return (
       <Block flex={false}>
         {label ? (
@@ -35,10 +24,34 @@ const Input = (email, phone, number, secure, error, label, style, ...props) => {
         ) : null}
       </Block>
     );
-  };
+  }
 
-  const renderRight = () => {
-    const { rightLabel, rightStyle, onRightPress } = props;
+  renderToggle() {
+    const { secure, rightLabel } = this.props;
+    const { toggleSecure } = this.state;
+
+    if (!secure) return null;
+
+    return (
+      <Button
+        style={styles.toggle}
+        onPress={() => this.setState({ toggleSecure: !toggleSecure })}
+      >
+        {rightLabel ? (
+          rightLabel
+        ) : (
+          <Ionicons
+            color={theme.colors.gray}
+            size={theme.sizes.font * 1.35}
+            name={!toggleSecure ? "md-eye" : "md-eye-off"}
+          />
+        )}
+      </Button>
+    );
+  }
+
+  renderRight() {
+    const { rightLabel, rightStyle, onRightPress } = this.props;
 
     if (!rightLabel) return null;
 
@@ -50,50 +63,46 @@ const Input = (email, phone, number, secure, error, label, style, ...props) => {
         {rightLabel}
       </Button>
     );
-  };
+  }
 
-  const renderToggle = () => {
-    const { secure, rightLabel } = this.props;
+  render() {
+    const { email, phone, number, secure, error, style, ...props } = this.props;
 
-    if (!secure) return null;
+    const { toggleSecure } = this.state;
+    const isSecure = toggleSecure ? false : secure;
+
+    const inputStyles = [
+      styles.input,
+      error && { borderColor: theme.colors.accent },
+      style,
+    ];
+
+    const inputType = email
+      ? "email-address"
+      : number
+      ? "numeric"
+      : phone
+      ? "phone-pad"
+      : "default";
 
     return (
-      <Button
-        style={styles.toggle}
-        onPress={() => setToggleSecure(!toggleSecure)}
-      >
-        {rightLabel ? (
-          rightLabel
-        ) : (
-          <Icon.Ionicons
-            color={theme.colors.gray}
-            size={theme.sizes.font * 1.35}
-            name={!toggleSecure ? "md-eye" : "md-eye-off"}
-          />
-        )}
-      </Button>
+      <Block flex={false} margin={[theme.sizes.base, 0]}>
+        {this.renderLabel()}
+        <TextInput
+          style={inputStyles}
+          secureTextEntry={isSecure}
+          autoComplete="off"
+          autoCapitalize="none"
+          autoCorrect={false}
+          keyboardType={inputType}
+          {...props}
+        />
+        {this.renderToggle()}
+        {this.renderRight()}
+      </Block>
     );
-  };
-
-  return (
-    <Block flex={false} margin={[theme.sizes.base, 0]}>
-      {renderLabel()}
-      <TextInput
-        style={inputStyles}
-        secureTextEntry={isSecure}
-        autoComplete="off"
-        autoCapitalize="none"
-        autoCorrect={false}
-        keyboardType={inputType}
-        {...props}
-      />
-      {renderToggle()}
-      {renderRight()}
-    </Block>
-  );
-};
-
-export default Input;
+  }
+}
 
 const styles = StyleSheet.create({
   input: {
@@ -108,9 +117,10 @@ const styles = StyleSheet.create({
   toggle: {
     position: "absolute",
     alignItems: "flex-end",
+    backgroundColor: "transparent",
     width: theme.sizes.base * 2,
     height: theme.sizes.base * 2,
     top: theme.sizes.base,
-    right: 0,
+    right: theme.sizes.base / 4,
   },
 });
