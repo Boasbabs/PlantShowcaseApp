@@ -9,7 +9,7 @@ A react native app. This project was bootstrapped with [Expo](https://expo.io/).
 - expo-linear-gradient
 - react-navigation 5 for Screens navigation
 - react-native-vector-icons
-- expo
+- [Expo](https://expo.io/)
 
 # Screens in App:
 - Welcome
@@ -22,7 +22,8 @@ A react native app. This project was bootstrapped with [Expo](https://expo.io/).
 
 
 ### Deployment
+[PlantShowcaseApp](https://expo.io/@boasbabs/projects/PlantShowcaseApp)
 
 
-### Further Credits:
-- [React UI Kit](https://youtu.be/gyiwFcrVRCM)
+<!-- ### Further Credits:
+- [React UI Kit](https://youtu.be/gyiwFcrVRCM) -->

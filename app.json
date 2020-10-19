@@ -21,6 +21,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "A demo app showcasing plants with a few auth pages",
+    "githubUrl": "https://github.com/Boasbabs/PlantShowcaseApp"
   }
 }
